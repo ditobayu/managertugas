@@ -3,7 +3,7 @@ import BoxItem from "../../components/BoxItem";
 import EditProjectForm from "../../components/EditProjectForm";
 import NewProjectForm from "../../components/NewProjectForm";
 import Sidebar from "../../components/Sidebar";
-import { GlobalProvider } from "../../GlobalContext";
+import { GlobalContext } from "../../contex/GlobalContext";
 
 const Project = () => {
   const {
@@ -12,7 +12,7 @@ const Project = () => {
     deleteProjects,
     isSidebarFull,
     editingProject,
-  } = useContext(GlobalProvider);
+  } = useContext(GlobalContext);
   return (
     <div className="flex flex-row noScrollbar ">
       <Sidebar />

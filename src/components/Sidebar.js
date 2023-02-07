@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "../App.js";
-import { GlobalProvider } from "../GlobalContext/index.js";
+import { GlobalContext } from "../contex/GlobalContext.js";
 
 const Sidebar = () => {
   const { userData, isSidebarFull, setIsSidebarFull, handleLogout } =
-    useContext(GlobalProvider);
+    useContext(GlobalContext);
   const dataMenu = [
     {
       name: "Dashboard",

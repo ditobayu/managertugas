@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { GlobalProvider } from "../GlobalContext";
+import { GlobalContext } from "../contex/GlobalContext";
 
 const NewProjectForm = () => {
   const {
@@ -9,7 +9,7 @@ const NewProjectForm = () => {
     handleDecrementProgress,
     postProjects,
     isLoading,
-  } = useContext(GlobalProvider);
+  } = useContext(GlobalContext);
   return (
     <div>
       <form

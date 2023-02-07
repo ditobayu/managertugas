@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { GlobalProvider } from "../GlobalContext";
+import { GlobalContext } from "../contex/GlobalContext";
 
 const TaskEdit = () => {
   const {
@@ -10,7 +10,7 @@ const TaskEdit = () => {
     disabledRadio,
     setDisabledRadio,
     isLoading,
-  } = useContext(GlobalProvider);
+  } = useContext(GlobalContext);
   const days = ["S", "M", "T", "W", "T", "F", "S"];
   return (
     <div id="taskEdit">

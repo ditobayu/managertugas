@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { GlobalProvider } from "../GlobalContext";
+import { GlobalContext } from "../contex/GlobalContext";
 import Task from "./Task";
 
 const Content = () => {
   const { userData, currentYear, currentMonth, months, days, monthToggle } =
-    useContext(GlobalProvider);
+    useContext(GlobalContext);
   const projects = userData.user.data.projects
     .sort(
       (a, b) =>

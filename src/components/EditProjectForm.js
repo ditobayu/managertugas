@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { GlobalProvider } from "../GlobalContext";
+import { GlobalContext } from "../contex/GlobalContext";
 
 const EditProjectForm = () => {
   const {
@@ -9,7 +9,7 @@ const EditProjectForm = () => {
     editedProject,
     editProject,
     isLoading,
-  } = useContext(GlobalProvider);
+  } = useContext(GlobalContext);
   return (
     <div id="projectEdit">
       <form

@@ -3,8 +3,8 @@ import Cookies from "js-cookie";
 import { StateManager } from "../App";
 import { useNavigate } from "react-router-dom";
 
-export const GlobalProvider = createContext();
-export const GlobalContext = (props) => {
+export const GlobalContext = createContext();
+export const GlobalProvider = (props) => {
   const navigate = useNavigate();
   const { setToken } = useContext(StateManager);
   const [theme, setTheme] = useState("light");
@@ -603,7 +603,7 @@ export const GlobalContext = (props) => {
 
   const [socket, setSocket] = useState();
   return (
-    <GlobalProvider.Provider
+    <GlobalContext.Provider
       value={{
         handleTheme,
         socket,
@@ -686,6 +686,6 @@ export const GlobalContext = (props) => {
       }}
     >
       {props.children}
-    </GlobalProvider.Provider>
+    </GlobalContext.Provider>
   );
 };

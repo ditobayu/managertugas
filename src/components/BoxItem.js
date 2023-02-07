@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { GlobalProvider } from "../GlobalContext";
+import { GlobalContext } from "../contex/GlobalContext";
 
 const BoxItem = (props) => {
-  const { hari, months } = useContext(GlobalProvider);
+  const { hari, months } = useContext(GlobalContext);
   const task1 = {
     title: props?.title,
     note: props?.note,

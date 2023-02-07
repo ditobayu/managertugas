@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../../App.js";
-import { GlobalProvider } from "../../GlobalContext/index.js";
+import { GlobalContext } from "../../contex/GlobalContext.js";
 
 const LandingPage = () => {
   const [theme] = useContext(ThemeContext);
@@ -16,7 +16,7 @@ const LandingPage = () => {
     failedLogin,
     login,
     isLoading,
-  } = useContext(GlobalProvider);
+  } = useContext(GlobalContext);
   return (
     <div className="h-screen bg-purple-400 dark:bg-slate-600 w-screen p-4 md:p-8">
       <div className="bg-slate-200 dark:bg-slate-800 h-full rounded-3xl p-12 px-8 sm:px-20 text-xs sm:text-sm">

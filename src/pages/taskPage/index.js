@@ -3,11 +3,11 @@ import BoxItem from "../../components/BoxItem";
 import Sidebar from "../../components/Sidebar";
 import Task from "../../components/Task.js";
 import TaskEdit from "../../components/TaskEdit";
-import { GlobalProvider } from "../../GlobalContext";
+import { GlobalContext } from "../../contex/GlobalContext";
 
 const TaskPage = () => {
   const { userData, isSidebarFull, deleteTask, editingTask, isEditingTask } =
-    useContext(GlobalProvider);
+    useContext(GlobalContext);
   return (
     <div className="flex flex-row noScrollbar">
       <Sidebar />

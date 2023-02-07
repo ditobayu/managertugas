@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 // import { useState } from "react";
 import Sidebar from "../../components/Sidebar";
-import { GlobalProvider } from "../../GlobalContext";
+import { GlobalContext } from "../../contex/GlobalContext";
 // import io from "socket.io-client";
 
 const Messages = () => {
@@ -21,7 +21,7 @@ const Messages = () => {
     // setCurrentChat,
     // socket,
     // setSocket,
-  } = useContext(GlobalProvider);
+  } = useContext(GlobalContext);
   // const id = userData.user._id;
   useEffect(() => {
     const fetchData = async () => {

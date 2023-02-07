@@ -1,14 +1,14 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
-import Dashboard from "./scenes/dashboard";
-import Project from "./scenes/project";
-import TaskPage from "./scenes/taskPage";
+import Dashboard from "./pages/dashboard";
+import Project from "./pages/project";
+import TaskPage from "./pages/taskPage";
 import { createContext, useState, useEffect } from "react";
-import LandingPage from "./scenes/landingPage";
+import LandingPage from "./pages/landingPage";
 import Cookies from "js-cookie";
-import { GlobalContext } from "./GlobalContext";
-import NotFound from "./scenes/notFound";
-import Profile from "./scenes/Profile";
-import Messages from "./scenes/Messages";
+import { GlobalProvider } from "./contex/GlobalContext";
+import NotFound from "./pages/notFound";
+import Profile from "./pages/Profile";
+import Messages from "./pages/Messages";
 
 export const ThemeContext = createContext();
 export const StateManager = createContext();
@@ -32,7 +32,7 @@ function App() {
           }}
         >
           <BrowserRouter>
-            <GlobalContext>
+            <GlobalProvider>
               <Routes>
                 <>
                   <Route path="*" element={<NotFound />} />
@@ -78,7 +78,7 @@ function App() {
                   />
                 </>
               </Routes>
-            </GlobalContext>
+            </GlobalProvider>
           </BrowserRouter>
         </StateManager.Provider>
       </ThemeContext.Provider>

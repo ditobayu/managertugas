@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import Content from "../../components/Content.js";
 import Sidebar from "../../components/Sidebar.js";
 import Topbar from "../../components/Topbar.js";
-import { GlobalProvider } from "../../GlobalContext/index.js";
+import { GlobalContext } from "../../contex/GlobalContext.js";
 
 const Dashboard = () => {
-  const { isSidebarFull } = useContext(GlobalProvider);
+  const { isSidebarFull } = useContext(GlobalContext);
   return (
     <div className="flex flex-row noScrollbar ">
       <Sidebar />

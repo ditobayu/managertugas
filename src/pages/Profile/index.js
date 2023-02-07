@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import Sidebar from "../../components/Sidebar";
-import { GlobalProvider } from "../../GlobalContext";
+import { GlobalContext } from "../../contex/GlobalContext";
 
 const Profile = () => {
   const { userData, isSidebarFull, months, setAllUser, allUser } =
-    useContext(GlobalProvider);
+    useContext(GlobalContext);
   useEffect(() => {
     const fetchData = async () => {
       const qwe = await fetch(

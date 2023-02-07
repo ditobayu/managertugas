@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { GlobalProvider } from "../GlobalContext";
+import { GlobalContext } from "../contex/GlobalContext";
 
 const Topbar = () => {
-  const { userData } = useContext(GlobalProvider);
+  const { userData } = useContext(GlobalContext);
   const quotes = [
     `“Kegigihan itu penting. Kamu tidak boleh menyerah kecuali terpaksa” – Elon Musk`,
     `“Jangan pernah takut dengan medan perang baru!” – Elon Musk`,
