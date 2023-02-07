@@ -43,6 +43,14 @@ const Messages = () => {
     // return () => newSocket.close();
   }, [userData, setAllUser]);
 
+  useEffect(() => {
+    if (currentReceiver) {
+      // const scrollToLastChat = () => {
+      document.getElementById("lastChat")?.scrollIntoView();
+      // };
+      // scrollToLastChat();
+    }
+  }, [currentChat, currentReceiver]);
   // useEffect(() => {
   //   if (socket == null) return;
 
@@ -75,7 +83,7 @@ const Messages = () => {
           } md:flex w-full md:w-3/12 flex-col overflow-y-scroll noScrollbar h-full sm:mr-2`}
         >
           <div>
-            <div className="h-20 hidden sm:flex flex-row gap-2 bg-gradient-to-r from-cyan-100 dark:from-cyan-800  to-blue-100 dark:to-blue-800 px-2 rounded-xl mt-4 items-center noScrollbar overflow-x-scroll">
+            <div className="h-20 hidden sm:flex flex-row gap-2 bg-gradient-to-r from-cyan-100 dark:from-cyan-800  to-blue-100 dark:to-blue-800 px-2 rounded-xl items-center noScrollbar overflow-x-scroll">
               {allUser
                 ?.filter((val) => val._id !== userData.user._id)
                 .map((val, i) => (
@@ -173,7 +181,7 @@ const Messages = () => {
               Chat dengan {currentReceiver?.name}
             </div>
           </div>
-          <div className="bg-transparent px-4 py-4 pt-16 pb-32 sm:pb-16 overflow-y-scroll noScrollbar">
+          <div className="bg-transparent px-4 py-4 pt-16 pb-32 scroll-smooth sm:pb-16 overflow-y-scroll noScrollbar">
             {currentChat.map((data, index) => (
               <div
                 key={index}
@@ -184,6 +192,7 @@ const Messages = () => {
                 }
               >
                 <div
+                  id={index === currentChat.length - 1 ? "lastChat" : null}
                   className={
                     data.userID1 === userData.user._id
                       ? "rounded-xl rounded-tr-sm w-fit p-2 text-sm text-white bg-purple-700"
@@ -206,7 +215,7 @@ const Messages = () => {
               name="message"
               value={chat}
               onChange={handleInputChat}
-              className="w-full h-12 rounded-xl dark:text-slate-100 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 bg-gray-100 dark:bg-slate-700 py-1 px-4 "
+              className="flex-1 h-12 rounded-xl dark:text-slate-100 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 bg-gray-100 dark:bg-slate-700 py-1 px-4 "
             />
             <button
               className="rounded-full bg-slate-100 dark:bg-slate-700 dark:text-slate-100 flex justify-center items-center h-12 w-12"
