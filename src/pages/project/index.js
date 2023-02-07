@@ -18,8 +18,8 @@ const Project = () => {
       <Sidebar />
       <div
         className={`flex duration-300 flex-col bg-slate-100 ${
-          userData.user.data.projects.length === 0 ? "pb-96" : "pb-8"
-        } gap-1 dark:bg-slate-900 sm:pr-4 sm:pt-4
+          userData.user.data.projects.length === 0 ? "pb-96" : "pb-24"
+        } gap-1 dark:bg-slate-900 sm:pr-4 pt-4
         ${isSidebarFull ? " sm:pl-64" : " sm:pl-24"}
         pl-4
           w-screen`}

@@ -142,21 +142,41 @@ const LandingPage = () => {
                   </div>
                   <div className="flex justify-center text-xs">
                     <div className="text-slate-400">Kamu belum punya akun?</div>
-                    <button
+                    <div
                       onClick={() => {
                         setIsLoginPage(false);
                       }}
                       className="text-blue-500"
                     >
-                      Sign Up
-                    </button>
+                      <div className="pointer-events-none">Sign Up</div>
+                    </div>
                   </div>
                 </form>
               </div>
             </div>
           ) : (
             <div className="bg-white z-50 dark:bg-slate-600 rounded-3xl px-8 lg:px-8 md:px-4 py-6 h-96 mt-12 w-full md:w-4/12 dark:text-slate-100 text-slate-900">
-              <div className="text-xl ">Sign Up</div>
+              <div className="text-xl flex flex-row">
+                Sign Up{" "}
+                {isLoading && (
+                  <div className="flex flex-row items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      className="bi bi-arrow-clockwise animate-spin"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
+                      />
+                      <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+                    </svg>
+                  </div>
+                )}
+              </div>
               <div className="mb-4 text-slate-400 text-xs">
                 Apaaa?? Kamu belum ngatur tugasmu?
               </div>
@@ -257,14 +277,14 @@ const LandingPage = () => {
                   </div>
                   <div className="flex justify-center text-xs">
                     <div className="text-slate-400">Kamu udah punya akun?</div>
-                    <button
+                    <div
                       onClick={() => {
                         setIsLoginPage(true);
                       }}
                       className="text-blue-500"
                     >
-                      Sign In
-                    </button>
+                      <div className="pointer-events-none">Sign In</div>
+                    </div>
                   </div>
                 </form>
               </div>

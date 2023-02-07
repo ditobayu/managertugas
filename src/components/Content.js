@@ -150,7 +150,7 @@ const Content = () => {
   return (
     <div className="h-full w-full bg-transparent dark:bg-slate-900 flex flex-col sm:flex-row flex-wrap pr-4">
       <div className="sm:w-5/12 flex sm:flex-col flex-col-reverse">
-        <div className="w-full h-96 ">
+        <div className="w-full h-96 sm:flex hidden">
           <Task />
         </div>
         <div className="flex flex-col mb-4 mt-4 sm:mt-12 w-full">
@@ -194,7 +194,7 @@ const Content = () => {
       </div>
       <div className="sm:pl-4 sm:w-7/12">
         <div className="mb-4 w-full">
-          <div className=" flex flex-row items-center justify-between">
+          <div className=" mx-4 sm:mx-0 flex flex-row items-center justify-between">
             <Link to="/project" className="text-semibold">
               Project
             </Link>
@@ -202,7 +202,9 @@ const Content = () => {
               Semua Project
             </Link>
           </div>
-          <div className=" text-xs text-slate-400 ">Project Terdekat</div>
+          <div className=" mx-4 sm:mx-0 text-xs text-slate-400 ">
+            Project Terdekat
+          </div>
           <div className="w-full">
             <div className="  flex flex-row gap-4 bg-transparent h-36 pb-4">
               {projects.length > 0 ? (
@@ -245,7 +247,7 @@ const Content = () => {
             </div>
           </div>
         </div>
-        <div className=" w-full pb-4 ">
+        <div className=" w-full sm:pb-4 pb-12 ">
           <div className=" flex flex-col bg-white dark:bg-slate-800 dark:text-white shadow-lg rounded-3xl p-4 pb-6 h-full w-full">
             <div className=" flex flex-row justify-between items-center m-4 mt-2">
               <button

@@ -13,8 +13,8 @@ const Task = () => {
   } = useContext(GlobalContext);
   const days = ["S", "M", "T", "W", "T", "F", "S"];
   return (
-    <div>
-      <div className="flex flex-col h-64 mb-4 font-medium">
+    <div className="w-full">
+      <div className="flex flex-col w-full h-64 mb-4 font-medium">
         <div className="rounded-3xl shadow-lg dark:bg-slate-800 bg-white p-4">
           <div className="flex flex-row items-center mb-4">
             <span>Buat Tugas </span>

@@ -512,6 +512,7 @@ export const GlobalProvider = (props) => {
   const [failedLogin, setFailedLogin] = useState(null);
   const register = async (values, onSubmitProps) => {
     values.preventDefault();
+    setIsLoading(true);
     const savedUserResponse = await fetch(
       "https://asdasdasd-blgmkqiko-ditobayu.vercel.app/auth/register",
       {
@@ -538,6 +539,7 @@ export const GlobalProvider = (props) => {
         occupation: "",
       });
 
+      setIsLoading(false);
       setIsLoginPage(true);
     }
   };

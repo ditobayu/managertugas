@@ -112,12 +112,12 @@ const Sidebar = () => {
     <div
       className={`bg-trasnparent ${
         isSidebarFull ? "sm:w-64" : " sm:w-24"
-      } duration-300 fixed w-full h-screen p-1 sm:p-4 z-10`}
+      } duration-300 fixed pointer-events-none w-full h-screen p-1 sm:p-4 z-10`}
     >
       <div
         className={`${
           !isSidebarFull ? "items-center" : ""
-        } flex sm:flex-col flex-row w-full justify-center sm:justify-start absolute sm:relative bottom-0 bg-white dark:bg-slate-800 sm:rounded-3xl rounded-xl shadow-lg h-20 sm:h-full `}
+        } flex sm:flex-col flex-row w-full pointer-events-auto justify-center sm:justify-start absolute sm:relative bottom-0 bg-white dark:bg-slate-800 sm:rounded-3xl rounded-xl shadow-lg h-16 sm:h-full `}
       >
         <div
           className={`${
@@ -149,7 +149,7 @@ const Sidebar = () => {
             ""
           )}
         </div>
-        <div className="m-4 pb-4 sm:border-b sm:border-slate-300 gap-1 text-sm flex flex-row sm:flex-col">
+        <div className="sm:m-4 sm:pb-4 sm:border-b sm:border-slate-300 gap-4 sm:gap-1 text-sm flex flex-row sm:flex-col">
           {dataMenu.map((data, index) => (
             <Link
               key={index}
@@ -163,7 +163,7 @@ const Sidebar = () => {
             </Link>
           ))}
         </div>
-        <div className="mx-4 pb-4 sm:border-b sm:border-slate-300 justify-between items-center text-sm flex flex-col sm:flex-row">
+        <div className="mx-4 sm:pb-4 sm:border-b sm:border-slate-300 justify-between items-center text-sm flex flex-col sm:flex-row">
           <div className="">
             <button
               onClick={handleTheme}
@@ -198,7 +198,7 @@ const Sidebar = () => {
                 handleLogout();
                 window.location.reload();
               }}
-              className="hover:bg-blue-100 hover:text-blue-800 font-medium duration-200 rounded-full p-2"
+              className="hover:bg-blue-100 ml-4 sm:ml-0 hover:text-blue-800 font-medium duration-200 rounded-full p-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
