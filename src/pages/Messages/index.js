@@ -45,10 +45,7 @@ const Messages = () => {
 
   useEffect(() => {
     if (currentReceiver) {
-      // const scrollToLastChat = () => {
       document.getElementById("lastChat")?.scrollIntoView();
-      // };
-      // scrollToLastChat();
     }
   }, [currentChat, currentReceiver]);
   // useEffect(() => {
