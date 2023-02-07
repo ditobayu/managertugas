@@ -288,7 +288,7 @@ const Content = () => {
                           ? "text-blue-500 hover:text-blue-500 dark:hover:text-blue-500 focus:text-slate-800"
                           : ""
                       } ${
-                        data.activity ? "bg-green-200" : ""
+                        data.activity ? "bg-green-200 dark:bg-green-600" : ""
                       } flex-col h-8 w-8 sm:h-12 sm:w-12 dark:hover:bg-slate-700 overflow-hidden dark:focus:bg-slate-800 dark:focus:text-white focus:pointer-events-none focus:absolute focus:z-50 ${
                         i % 7 !== 0
                           ? i % 7 !== 1
@@ -342,7 +342,7 @@ const Content = () => {
                 <div className="h-4 w-4 rounded-full bg-blue-500"></div> Tugas
               </div>
               <div className="flex flex-row items-center gap-1">
-                <div className="h-4 w-4 rounded-full bg-green-200"></div>{" "}
+                <div className="h-4 w-4 rounded-full bg-green-200 dark:bg-green-600"></div>{" "}
                 Project
               </div>
             </div>

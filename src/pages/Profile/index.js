@@ -25,10 +25,10 @@ const Profile = () => {
       <div
         className={`flex duration-300 flex-row bg-slate-100 pb-8 gap-1 dark:bg-slate-900 sm:pr-4 sm:pt-4 pt-2
         ${isSidebarFull ? " sm:pl-64" : " sm:pl-24"}
-        pl-4
+        px-1
           w-screen`}
       >
-        <div className="flex flex-col w-full lg:w-7/12 pr-2">
+        <div className="flex flex-col w-full lg:w-7/12 sm:pr-2">
           <div className="bg-gradient-to-r from-cyan-100 dark:from-cyan-800 to-blue-100 dark:to-blue-800 h-60 relative rounded-2xl">
             <div className="bg-white dark:bg-slate-800 p-4 absolute flex justify-center items-center -bottom-12 sm:-bottom-16 left-4 sm:left-8 rounded-full h-24 sm:h-36 w-24 sm:w-36 ">
               <svg

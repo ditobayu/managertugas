@@ -64,18 +64,18 @@ const Messages = () => {
     <div className="flex flex-row h-screen">
       <Sidebar />
       <div
-        className={`flex duration-300 text-slate-700 flex-row bg-slate-100 gap-1 dark:bg-slate-900 sm:pr-4 sm:pt-4 pt-2
+        className={`flex duration-300 text-slate-700 flex-row bg-slate-100 gap-1 dark:bg-slate-900 sm:pr-4 sm:pt-4
         ${isSidebarFull ? " sm:pl-64" : " sm:pl-24"}
-        pl-4
+        
           w-screen`}
       >
         <div
           className={`${
             isChatOpened ? "hidden" : "flex"
-          } md:flex w-full md:w-3/12 flex-col overflow-y-scroll noScrollbar h-full mr-2`}
+          } md:flex w-full md:w-3/12 flex-col overflow-y-scroll noScrollbar h-full sm:mr-2`}
         >
           <div>
-            <div className="h-20 flex flex-row gap-2 bg-gradient-to-r from-cyan-100 dark:from-cyan-800  to-blue-100 dark:to-blue-800 px-2 rounded-xl mt-4 items-center noScrollbar overflow-x-scroll">
+            <div className="h-20 hidden sm:flex flex-row gap-2 bg-gradient-to-r from-cyan-100 dark:from-cyan-800  to-blue-100 dark:to-blue-800 px-2 rounded-xl mt-4 items-center noScrollbar overflow-x-scroll">
               {allUser
                 ?.filter((val) => val._id !== userData.user._id)
                 .map((val, i) => (
@@ -108,7 +108,7 @@ const Messages = () => {
                 ))}
             </div>
           </div>
-          <div className="bg-white dark:text-slate-100 rounded-2xl noScrollbar border border-slate-300 dark:bg-slate-800 dark:border-slate-600 overflow-y-scroll h-full my-4">
+          <div className="bg-white dark:text-slate-100 sm:rounded-2xl noScrollbar border border-slate-300 dark:bg-slate-800 dark:border-slate-600 overflow-y-scroll h-full sm:my-4">
             <div className="text-xl bg-slate-100 p-4 py-3 border-b dark:bg-slate-700 border-slate-300 dark:border-slate-600">
               Messages
             </div>
@@ -122,7 +122,7 @@ const Messages = () => {
                   name={val.firstName + " " + val.lastName}
                   className={`${
                     currentReceiver.id === val._id
-                      ? "border-l-4 border-cyan-400 darkLborder-cyan-200 bg-gradient-to-r from-cyan-50 dark:from-cyan-600 to-cyan-100 dark:to-cyan-800"
+                      ? "sm:border-l-4 sm:border-cyan-400 sm:dark:border-cyan-200 sm:bg-gradient-to-r sm:from-cyan-50 sm:dark:from-cyan-600 sm:to-cyan-100 sm:dark:to-cyan-800"
                       : "bg-slate-50 dark:bg-slate-800 dark:border-slate-700 border-slate-300"
                   }  duration-300 flex flex-row items-center w-full font-bold text-xs gap-2 p-2 border-b `}
                 >
@@ -148,7 +148,7 @@ const Messages = () => {
         <div
           className={`${
             isChatOpened ? "flex" : "hidden"
-          } md:flex flex-col w-full h-full md:w-9/12 pr-2 mr-1 sm:mt-0 mt-1 sm:mr-0 bg-gradient-to-r from-purple-200 dark:from-purple-800 to-pink-200 dark:to-pink-800 overflow-hidden rounded-t-3xl relative`}
+          } md:flex flex-col w-full h-full md:w-9/12 pr-2 sm:mt-0 bg-gradient-to-r from-purple-200 dark:from-blue-900 to-pink-200 dark:to-indigo-900 overflow-hidden sm:rounded-t-3xl relative`}
         >
           <div className="absolute bg-white dark:bg-slate-700  h-12 w-full px-4 flex items-center">
             <button
@@ -173,7 +173,7 @@ const Messages = () => {
               Chat dengan {currentReceiver?.name}
             </div>
           </div>
-          <div className="bg-transparent px-4 py-4 pt-16 pb-16 overflow-y-scroll noScrollbar">
+          <div className="bg-transparent px-4 py-4 pt-16 pb-32 sm:pb-16 overflow-y-scroll noScrollbar">
             {currentChat.map((data, index) => (
               <div
                 key={index}
@@ -186,7 +186,7 @@ const Messages = () => {
                 <div
                   className={
                     data.userID1 === userData.user._id
-                      ? "rounded-xl rounded-tr-sm w-fit p-2 text-sm text-white bg-blue-500"
+                      ? "rounded-xl rounded-tr-sm w-fit p-2 text-sm text-white bg-purple-700"
                       : "rounded-xl rounded-tl-sm w-fit p-2 text-sm text-white bg-gray-800"
                   }
                 >
@@ -197,7 +197,7 @@ const Messages = () => {
           </div>
           <form
             onSubmit={sendChat}
-            className="w-full h-16 flex flex-row items-center gap-2 absolute bottom-0 mb-2 px-4"
+            className="w-full h-16 flex flex-row items-center gap-2 absolute bottom-14 sm:bottom-0 mb-2 px-4"
           >
             <input
               required

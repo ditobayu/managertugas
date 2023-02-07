@@ -21,7 +21,7 @@ const Project = () => {
           userData.user.data.projects.length === 0 ? "pb-96" : "pb-24"
         } gap-1 dark:bg-slate-900 sm:pr-4 pt-4
         ${isSidebarFull ? " sm:pl-64" : " sm:pl-24"}
-        pl-4
+        px-1
           w-screen`}
       >
         <div className="text-lg font-semibold px-4">Project</div>
@@ -45,7 +45,9 @@ const Project = () => {
             />
           ))}
         </div>
-        <div>{isEditingProject ? <EditProjectForm /> : <NewProjectForm />}</div>
+        <div className="px-1">
+          {isEditingProject ? <EditProjectForm /> : <NewProjectForm />}
+        </div>
       </div>
     </div>
   );

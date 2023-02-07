@@ -112,12 +112,12 @@ const Sidebar = () => {
     <div
       className={`bg-trasnparent ${
         isSidebarFull ? "sm:w-64" : " sm:w-24"
-      } duration-300 fixed pointer-events-none w-full h-screen p-1 sm:p-4 z-10`}
+      } duration-300 fixed pointer-events-none w-full h-screen sm:p-4 z-10`}
     >
       <div
         className={`${
           !isSidebarFull ? "items-center" : ""
-        } flex sm:flex-col flex-row w-full pointer-events-auto justify-center sm:justify-start absolute sm:relative bottom-0 bg-white dark:bg-slate-800 sm:rounded-3xl rounded-xl shadow-lg h-16 sm:h-full `}
+        } flex sm:flex-col flex-row w-full border-t dark:border-t-slate-600 border-t-slate-300 sm:border-0 pointer-events-auto justify-center sm:justify-start absolute sm:relative bottom-0 bg-white dark:bg-slate-800 sm:rounded-3xl shadow-lg h-16 sm:h-full `}
       >
         <div
           className={`${

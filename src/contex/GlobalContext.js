@@ -572,7 +572,6 @@ export const GlobalProvider = (props) => {
     if (name === "message") {
       setChat(value);
     }
-    console.log(chat);
   };
   const sendChat = async (e) => {
     e.preventDefault();
