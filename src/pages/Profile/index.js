@@ -25,7 +25,7 @@ const Profile = () => {
       <div
         className={`flex duration-300 flex-row bg-slate-100 pb-8 gap-1 dark:bg-slate-900 sm:pr-4 sm:pt-4 pt-2
         ${isSidebarFull ? " sm:pl-64" : " sm:pl-24"}
-        pl-14
+        pl-4
           w-screen`}
       >
         <div className="flex flex-col w-full lg:w-7/12 pr-2">

@@ -16,7 +16,7 @@ const TaskPage = () => {
           userData.user.data.tasks.length === 0 ? "pb-96" : "pb-48"
         } gap-1 dark:bg-slate-900 sm:pr-4 pt-4
         ${isSidebarFull ? " sm:pl-64" : " sm:pl-24"}
-        pl-14
+        pl-4
           w-screen`}
       >
         <div className="text-lg font-semibold px-4">Tugas</div>

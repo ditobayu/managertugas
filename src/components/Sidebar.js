@@ -110,19 +110,19 @@ const Sidebar = () => {
   };
   return (
     <div
-      className={`bg-trasnparent  ${
-        isSidebarFull ? "w-64" : "w-12 sm:w-24"
-      } duration-300 fixed h-screen p-1 sm:p-4 z-10`}
+      className={`bg-trasnparent ${
+        isSidebarFull ? "sm:w-64" : " sm:w-24"
+      } duration-300 fixed w-full h-screen p-1 sm:p-4 z-10`}
     >
       <div
         className={`${
           !isSidebarFull ? "items-center" : ""
-        } flex flex-col w-full bg-white dark:bg-slate-800 sm:rounded-3xl rounded-xl shadow-lg h-full `}
+        } flex sm:flex-col flex-row w-full justify-center sm:justify-start absolute sm:relative bottom-0 bg-white dark:bg-slate-800 sm:rounded-3xl rounded-xl shadow-lg h-20 sm:h-full `}
       >
         <div
           className={`${
             isSidebarFull ? "p-4 px-8" : "p-2 px-4"
-          } flex flex-row h-16 border-b border-slate-300 items-center  `}
+          } hidden sm:flex flex-row h-16 sm:border-b sm:border-slate-300 items-center  `}
         >
           {isSidebarFull ? (
             <div className="flex flex-col flex-1 ml-4">
@@ -149,7 +149,7 @@ const Sidebar = () => {
             ""
           )}
         </div>
-        <div className="m-4 pb-4 border-b border-slate-300 gap-1 text-sm flex flex-col">
+        <div className="m-4 pb-4 sm:border-b sm:border-slate-300 gap-1 text-sm flex flex-row sm:flex-col">
           {dataMenu.map((data, index) => (
             <Link
               key={index}
@@ -163,7 +163,7 @@ const Sidebar = () => {
             </Link>
           ))}
         </div>
-        <div className="mx-4 pb-4 border-b border-slate-300 justify-between items-center text-sm flex flex-col sm:flex-row">
+        <div className="mx-4 pb-4 sm:border-b sm:border-slate-300 justify-between items-center text-sm flex flex-col sm:flex-row">
           <div className="">
             <button
               onClick={handleTheme}
@@ -220,10 +220,10 @@ const Sidebar = () => {
             </button>
           </div>
         </div>
-        <div className="flex items-center">
+        <div className="hidden sm:flex items-center">
           <button
             onClick={() => setIsSidebarFull((prev) => !prev)}
-            className="absolute right-0 h-8 w-8 justify-center hover:scale-110 duration-300 flex rounded-full items-center p-2 bg-white dark:bg-slate-800 dark:border-slate-600 border border-slate-200 shadow-lg"
+            className="absolute right-0 h-8 w-8 justify-center hover:scale-110 duration-300 flex rounded-full items-center p-2 bg-white dark:bg-slate-800 dark:sm:border-slate-600 sm:border sm:border-slate-200 shadow-lg"
           >
             {isSidebarFull ? "<" : ">"}
           </button>

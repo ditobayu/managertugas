@@ -153,7 +153,7 @@ const Content = () => {
         <div className="w-full h-96 ">
           <Task />
         </div>
-        <div className="flex flex-col mb-4 mt-12 w-full">
+        <div className="flex flex-col mb-4 mt-4 sm:mt-12 w-full">
           <div className="px-4 flex w-full flex-row items-center justify-between">
             <Link to="/task" className="text-semibold">
               Tugas
