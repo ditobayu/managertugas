@@ -130,7 +130,7 @@ const Sidebar = () => {
                 {userData.user.firstName + " " + userData.user.lastName}
               </div>
               <div className="text-xs">
-                {new Date().getHours() > 0 &&
+                {new Date().getHours() >= 0 &&
                   new Date().getHours() <= 9 &&
                   "Pagi"}
                 {new Date().getHours() > 9 &&
