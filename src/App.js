@@ -23,7 +23,7 @@ function App() {
   }, [theme]);
   const [token, setToken] = useState(useState(Cookies.get("token")));
   return (
-    <div className="app text-slate-800 dark:text-white duration-300">
+    <div className="app text-slate-800 dark:text-white bg-slate-200 dark:bg-slate-800 duration-300">
       <ThemeContext.Provider value={[theme, setTheme]}>
         <StateManager.Provider
           value={{

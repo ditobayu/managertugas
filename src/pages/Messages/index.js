@@ -18,24 +18,17 @@ const Messages = () => {
     sendChat,
     isChatOpened,
     setIsChatOpened,
+    isLoading,
     // setCurrentChat,
     // socket,
     // setSocket,
   } = useContext(GlobalContext);
   // const id = userData.user._id;
   useEffect(() => {
-    const fetchData = async () => {
-      const qwe = await fetch(
-        "https://asdasdasd-ditobayu.vercel.app/users/alluser",
-        {
-          method: "GET",
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-      const qwe2 = await qwe.json();
-      setAllUser([...qwe2]);
-    };
-    fetchData();
+    const contactss = JSON.parse(localStorage.getItem("contacts"));
+    if (contactss) {
+      setAllUser(contactss);
+    }
 
     // const newSocket = io("http://localhost:3002", { query: { id } });
     // setSocket(newSocket);
@@ -113,7 +106,7 @@ const Messages = () => {
                 ))}
             </div>
           </div>
-          <div className="bg-white dark:text-slate-100 sm:rounded-2xl noScrollbar border border-slate-300 dark:bg-slate-800 dark:border-slate-600 overflow-y-scroll h-full sm:my-4">
+          <div className="bg-white sm:pb-0 pb-16 dark:text-slate-100 sm:rounded-2xl noScrollbar border border-slate-300 dark:bg-slate-800 dark:border-slate-600 overflow-y-scroll h-full sm:my-4">
             <div className="text-xl bg-slate-100 p-4 py-3 border-b dark:bg-slate-700 border-slate-300 dark:border-slate-600">
               Messages
             </div>
@@ -143,8 +136,24 @@ const Messages = () => {
                       <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                     </svg>
                   </div>
-                  <div className="flex flex-col pointer-events-none ">
+                  <div className="flex flex-row pointer-events-none ">
                     {val.firstName + " " + val.lastName}
+                    {isLoading && currentReceiver.id === val._id ? (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="bi bi-arrow-clockwise animate-spin"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
+                        />
+                        <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+                      </svg>
+                    ) : null}
                   </div>
                 </button>
               ))}

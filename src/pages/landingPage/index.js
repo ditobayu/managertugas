@@ -18,10 +18,10 @@ const LandingPage = () => {
     isLoading,
   } = useContext(GlobalContext);
   return (
-    <div className="h-screen bg-purple-400 dark:bg-slate-600 w-screen p-4 md:p-8">
-      <div className="bg-slate-200 dark:bg-slate-800 h-full rounded-3xl p-12 px-8 sm:px-20 text-xs sm:text-sm">
-        <div className="flex justify-between items-center">
-          <div className="md:pl-8 pl-4 md:text-3xl text-xl font-normal ">
+    <div className="h-screen bg-purple-400 dark:bg-slate-600 w-screen md:p-8">
+      <div className="bg-slate-200 dark:bg-slate-800 h-full md:rounded-3xl p-12 px-8 sm:px-20 text-xs sm:text-sm">
+        <div className="flex justify-between md:flex-row flex-row-reverse items-center">
+          <div className="hidden md:flex md:pl-8 pl-4 md:text-3xl text-xl font-normal ">
             Task Manager
           </div>
           <div className="flex items-center">
@@ -71,9 +71,9 @@ const LandingPage = () => {
             </button>
           </div>
         </div>
-        <div className="flex flex-row-reverse h-full">
+        <div className="flex flex-col-reverse md:flex-row-reverse h-full">
           {isLoginPage ? (
-            <div className="bg-white  dark:bg-slate-600 rounded-3xl p-8 py-6 h-96 mt-12 w-full my-auto md:w-4/12 text-slate-800 dark:text-white">
+            <div className="md:bg-white mb-16 md:dark:bg-slate-600 bg-transparent rounded-3xl p-8 py-6 h-96 md:mt-12 w-full my-auto md:w-4/12 text-slate-800 dark:text-white">
               <div className="text-xl">Sign In</div>
               <div className="mb-4 text-slate-400 text-xs">
                 Tugasmu udah kangen sama kamu
@@ -92,7 +92,7 @@ const LandingPage = () => {
                       name="email"
                       className="relative focus:outline-none bg-transparent h-10 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 placeholder:font-semibold text-sm border border-gray-400 rounded-md py-1 px-4 w-full"
                     />
-                    <span className="absolute bg-white md:text-xs dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300  text-gray-500 font-normal">
+                    <span className="absolute bg-slate-200 md:bg-white md:text-xs dark:bg-slate-800 md:dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300  text-gray-500 font-normal">
                       Email
                     </span>
                   </div>
@@ -105,7 +105,7 @@ const LandingPage = () => {
                       name="password"
                       className="relative focus:outline-none bg-transparent h-10 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 placeholder:font-semibold text-sm border border-gray-400 rounded-md py-1 px-4 w-full"
                     />
-                    <span className="absolute bg-white md:text-xs dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300 text-gray-500 font-normal">
+                    <span className="absolute bg-slate-200 md:bg-white md:text-xs dark:bg-slate-800 md:dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300 text-gray-500 font-normal">
                       Password
                     </span>
                   </div>
@@ -155,7 +155,7 @@ const LandingPage = () => {
               </div>
             </div>
           ) : (
-            <div className="bg-white z-50 dark:bg-slate-600 rounded-3xl px-8 lg:px-8 md:px-4 py-6 h-96 mt-12 w-full md:w-4/12 dark:text-slate-100 text-slate-900">
+            <div className="md:bg-white mb-16 md:dark:bg-slate-600 bg-transparent rounded-3xl px-8 lg:px-8 md:px-4 py-6 h-96 md:mt-12 w-full md:w-4/12 dark:text-slate-100 text-slate-900">
               <div className="text-xl flex flex-row">
                 Sign Up{" "}
                 {isLoading && (
@@ -195,7 +195,7 @@ const LandingPage = () => {
                         name="firstName"
                         className="relative focus:outline-none bg-transparent h-10 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 placeholder:font-semibold text-sm border border-gray-400 rounded-md py-1 px-4 w-full"
                       />
-                      <span className="absolute truncate bg-white md:text-xs dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300 text-gray-500 font-normal">
+                      <span className="absolute truncate bg-slate-200 md:bg-white md:text-xs dark:bg-slate-800 md:dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300 text-gray-500 font-normal">
                         First Name
                       </span>
                     </div>
@@ -208,7 +208,7 @@ const LandingPage = () => {
                         name="lastName"
                         className="relative focus:outline-none bg-transparent h-10 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 placeholder:font-semibold text-sm border border-gray-400 rounded-md py-1 px-4 w-full"
                       />
-                      <span className="absolute truncate bg-white md:text-xs dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300 text-gray-500 font-normal">
+                      <span className="absolute truncate bg-slate-200 md:bg-white md:text-xs dark:bg-slate-800 md:dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300 text-gray-500 font-normal">
                         Last Name
                       </span>
                     </div>
@@ -222,7 +222,7 @@ const LandingPage = () => {
                       name="email"
                       className="relative focus:outline-none bg-transparent h-10 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 placeholder:font-semibold text-sm border border-gray-400 rounded-md py-1 px-4 w-full"
                     />
-                    <span className="absolute bg-white md:text-xs dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300 text-gray-500 font-normal">
+                    <span className="absolute bg-slate-200 md:bg-white md:text-xs dark:bg-slate-800 md:dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300 text-gray-500 font-normal">
                       Email
                     </span>
                   </div>
@@ -235,7 +235,7 @@ const LandingPage = () => {
                       name="password"
                       className="relative focus:outline-none bg-transparent h-10 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 placeholder:font-semibold text-sm border border-gray-400 rounded-md py-1 px-4 w-full"
                     />
-                    <span className="absolute bg-white md:text-xs dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300 text-gray-500 font-normal">
+                    <span className="absolute bg-slate-200 md:bg-white md:text-xs dark:bg-slate-800 md:dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300 text-gray-500 font-normal">
                       Password
                     </span>
                   </div>
@@ -249,7 +249,7 @@ const LandingPage = () => {
                         name="location"
                         className="relative focus:outline-none bg-transparent h-10 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 placeholder:font-semibold text-sm border border-gray-400 rounded-md py-1 px-4 w-full"
                       />
-                      <span className="absolute bg-white md:text-xs dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300 text-gray-500 font-normal">
+                      <span className="absolute bg-slate-200 md:bg-white md:text-xs dark:bg-slate-800 md:dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300 text-gray-500 font-normal">
                         Location
                       </span>
                     </div>
@@ -262,7 +262,7 @@ const LandingPage = () => {
                         name="occupation"
                         className="relative focus:outline-none bg-transparent h-10 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 placeholder:font-semibold text-sm border border-gray-400 rounded-md py-1 px-4 w-full"
                       />
-                      <span className="absolute bg-white md:text-xs dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300 text-gray-500 font-normal">
+                      <span className="absolute bg-slate-200 md:bg-white md:text-xs dark:bg-slate-800 md:dark:bg-slate-600 dark:text-slate-100 left-0 mt-3 md:ml-2 lg:ml-4 ml-4 text-sm duration-300 text-gray-500 font-normal">
                         Occupation
                       </span>
                     </div>
@@ -348,6 +348,32 @@ const LandingPage = () => {
                 Menjadi fokus, terorganisir, dan tenang dengan Task Manager.
                 Tambahkan tugasmu. Atur hidupmu. Berkembang lebih banyak setiap
                 hari.
+              </div>
+            </div>
+          </div>
+          <div className="h-full md:hidden relative flex justify-center items-center">
+            <div className=" bg-white dark:bg-pink-900 overflow-hidden h-56 sm:h-48 w-9/12 sm:w-6/12 lg:w-[400px] rounded-xl">
+              <div className="h-4 bg-purple-400 px-4 gap-1 dark:bg-slate-400 flex flex-row items-center">
+                <div className="h-2 w-2 rounded-full bg-white"></div>
+                <div className="h-2 w-2 rounded-full bg-white"></div>
+                <div className="h-2 w-2 rounded-full bg-white"></div>
+              </div>
+              <div className="p-2 flex items-center justify-between">
+                <div className="font-bold text-md md:text-lg">Dashboard</div>
+                <div className="flex items-center text-xs md:text-md dark:text-slate-300 text-purple-400">
+                  Student
+                </div>
+              </div>
+              <div className="h-40 sm:h-32 gap-2 flex flex-row px-2">
+                <div className="bg-slate-100 dark:bg-slate-600 p-2 flex flex-row gap-2 rounded-xl w-2/3">
+                  <div className="h-full bg-white dark:bg-slate-500 w-1/2 rounded-xl"></div>
+                  <div className="h-full bg-white dark:bg-slate-500 w-1/2 rounded-xl"></div>
+                </div>
+                <div className="w-1/3 flex gap-2 flex-col">
+                  <div className="bg-slate-100 dark:bg-slate-600 h-1/3 rounded-xl"></div>
+                  <div className="bg-slate-100 dark:bg-slate-600 h-1/3 rounded-xl"></div>
+                  <div className="bg-slate-100 dark:bg-slate-600 h-1/3 rounded-xl"></div>
+                </div>
               </div>
             </div>
           </div>

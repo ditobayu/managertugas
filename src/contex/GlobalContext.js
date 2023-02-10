@@ -550,8 +550,10 @@ export const GlobalProvider = (props) => {
   const [currentChat, setCurrentChat] = useState([]);
   const [allUser, setAllUser] = useState(null);
   const chooseChat = async (e) => {
+    setIsLoading(true);
     const userID1 = userData.user._id;
     const userID2 = e.target.value;
+    setCurrentReceiver({ id: userID2, name: e.target.name });
     const chat = await fetch(
       "https://asdasdasd-ditobayu.vercel.app/users/getchat",
       {
@@ -560,9 +562,9 @@ export const GlobalProvider = (props) => {
         body: JSON.stringify({ userID1, userID2 }),
       }
     );
-    setCurrentReceiver({ id: userID2, name: e.target.name });
     const savedChat = await chat.json();
     setCurrentChat([...savedChat]);
+    setIsLoading(false);
     setIsChatOpened(true);
   };
   const [chat, setChat] = useState("");
@@ -603,10 +605,14 @@ export const GlobalProvider = (props) => {
   const [isChatOpened, setIsChatOpened] = useState(false);
 
   const [socket, setSocket] = useState();
+
+  const [selectedMenu, setSelectedMenu] = useState("");
   return (
     <GlobalContext.Provider
       value={{
         handleTheme,
+        selectedMenu,
+        setSelectedMenu,
         socket,
         setSocket,
         currentReceiver,

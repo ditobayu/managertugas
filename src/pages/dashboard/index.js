@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Content from "../../components/Content.js";
 import Sidebar from "../../components/Sidebar.js";
 import Topbar from "../../components/Topbar.js";
@@ -6,6 +6,21 @@ import { GlobalContext } from "../../contex/GlobalContext.js";
 
 const Dashboard = () => {
   const { isSidebarFull } = useContext(GlobalContext);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const qwe = await fetch(
+        "https://asdasdasd-ditobayu.vercel.app/users/alluser",
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      const qwe2 = await qwe.json();
+      localStorage.setItem("contacts", JSON.stringify(qwe2));
+    };
+    fetchData();
+  }, []);
   return (
     <div className="flex flex-row noScrollbar ">
       <Sidebar />

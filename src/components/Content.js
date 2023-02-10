@@ -172,7 +172,7 @@ const Content = () => {
               todayTask?.map((data, index) => (
                 <div
                   key={index}
-                  className="bg-white overflow-hidden dark:bg-slate-800 flex rounded-3xl py-2 px-6 shadow-md items-center flex-row justify-between"
+                  className="bg-white overflow-hidden dark:bg-slate-800 flex rounded-xl py-2 px-6 shadow-sm items-center flex-row justify-between"
                 >
                   <div className=" flex flex-col ">
                     <Link to="/task" className="w-fit">
@@ -212,13 +212,13 @@ const Content = () => {
                   <Link
                     key={i}
                     to="/project"
-                    className=" duration-200 mt-2 bg-white dark:bg-slate-800 flex flex-col justify-between shadow-md hover:shadow-lg rounded-3xl h-full p-4 flex-1"
+                    className=" duration-200 mt-2 bg-white dark:bg-slate-800 flex flex-col justify-between shadow-sm hover:shadow-md rounded-3xl h-full p-4 flex-1"
                   >
                     <div className="flex flex-row ">
                       <div>{data.name}</div>
                     </div>
                     <div className="text-xs flex flex-col gap-1 justify-between">
-                      <div className="border flex shadow-md border-slate-300 h-2 rounded-full">
+                      <div className="border flex shadow-sm border-slate-300 h-2 rounded-full">
                         <div
                           className={`bg-slate-600 dark:bg-slate-300 rounded-full ${progress[i]}`}
                         ></div>
@@ -248,7 +248,7 @@ const Content = () => {
           </div>
         </div>
         <div className=" w-full sm:pb-4 pb-12 ">
-          <div className=" flex flex-col bg-white dark:bg-slate-800 dark:text-white shadow-lg rounded-3xl p-4 pb-6 h-full w-full">
+          <div className=" flex flex-col bg-white dark:bg-slate-800 dark:text-white shadow-md rounded-3xl p-4 pb-6 h-full w-full">
             <div className=" flex flex-row justify-between items-center m-4 mt-2">
               <button
                 className="shadow-md rounded-full p-2 flex justify-center items-center h-8 w-8 border font-bold border-slate-200"
