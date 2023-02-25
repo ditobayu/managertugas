@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/dashboard";
-import Project from "./pages/project";
+import Challenge from "./pages/challenge";
 import TaskPage from "./pages/taskPage";
 import { createContext, useState, useEffect } from "react";
 import LandingPage from "./pages/landingPage";
@@ -43,9 +43,9 @@ function App() {
                     }
                   />
                   <Route
-                    path="/project"
+                    path="/Challenge"
                     element={
-                      Cookies.get("token") ? <Project /> : <Navigate to="/" />
+                      Cookies.get("token") ? <Challenge /> : <Navigate to="/" />
                     }
                   />
                   <Route

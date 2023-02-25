@@ -9,6 +9,7 @@ const Sidebar = () => {
     setIsSidebarFull,
     selectedMenu,
     setSelectedMenu,
+    coloredTheme,
   } = useContext(GlobalContext);
   const dataMenu = [
     {
@@ -32,7 +33,7 @@ const Sidebar = () => {
       ),
     },
     {
-      name: "Task",
+      name: "Task & Project",
       link: "/task",
       icon: (
         <svg
@@ -56,8 +57,8 @@ const Sidebar = () => {
       ),
     },
     {
-      name: "Project",
-      link: "/project",
+      name: "Challenge",
+      link: "/Challenge",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -121,12 +122,14 @@ const Sidebar = () => {
       <div
         className={`${
           !isSidebarFull ? "items-center" : ""
-        } flex sm:flex-col flex-row w-full border-y dark:border-y-slate-600 sm:border-0 pointer-events-auto justify-center sm:justify-start absolute sm:relative bottom-0 bg-transparent sm:rounded-3xl h-16 sm:h-full `}
+        } flex sm:flex-col flex-row w-full border-y dark:border-y-slate-600 sm:border-0 pointer-events-auto justify-center sm:justify-start absolute sm:relative bottom-0 ${
+          coloredTheme.first
+        } sm:rounded-3xl h-16 sm:h-full `}
       >
         <div
           className={`${
             isSidebarFull ? "p-4 px-8" : "p-2 px-4"
-          } bg-white dark:bg-slate-800 rounded-t-xl hidden w-full sm:flex flex-row h-16 sm:border-b sm:border-slate-300 items-center  `}
+          } rounded-t-xl hidden w-full sm:flex flex-row h-16 sm:border-b sm:border-slate-300 items-center  `}
         >
           {isSidebarFull ? (
             <div className="flex flex-col flex-1 ml-4">
@@ -158,9 +161,7 @@ const Sidebar = () => {
             <div
               key={index}
               className={`relative flex flex-row w-full items-center h-full ${
-                selectedMenu === data.link
-                  ? "bg-transparent "
-                  : "bg-white dark:bg-slate-800"
+                selectedMenu === data.link ? "bg-transparent " : ""
               } ${
                 selectedMenu ===
                 dataMenu[index + (index === dataMenu.length - 1 ? 0 : 1)].link
@@ -170,26 +171,20 @@ const Sidebar = () => {
             >
               <div
                 className={`${
-                  selectedMenu === data.link
-                    ? "hidden sm:flex bg-white dark:bg-slate-800 "
-                    : "hidden"
-                } h-full w-4 relative`}
+                  selectedMenu === data.link ? "hidden sm: " : "hidden"
+                } h-full w-4 relative ${coloredTheme.first}`}
               ></div>
               <div
                 className={`${
-                  selectedMenu === data.link
-                    ? " flex bg-white dark:bg-slate-800 "
-                    : "hidden"
+                  selectedMenu === data.link ? " flex  " : "hidden"
                 } ${
                   isSidebarFull ? " " : "sm:hidden"
-                } h-full w-16 sm:left-3 absolute`}
+                } h-full w-16 sm:left-3 absolute `}
               ></div>
               <div
                 className={`${
-                  selectedMenu === data.link
-                    ? "sm:hidden flex bg-white dark:bg-slate-800 "
-                    : "hidden"
-                } h-full w-full right-0 absolute`}
+                  selectedMenu === data.link ? "sm:hidden flex " : "hidden"
+                } h-full w-full right-0 absolute ${coloredTheme.first}`}
               ></div>
               <div
                 className={` w-full relative ${
@@ -210,27 +205,26 @@ const Sidebar = () => {
                 >
                   <div
                     className={`${
-                      !isSidebarFull ? "justify-center" : ""
-                    } pointer-events-none flex flex-row gap-4 py-3 items-center p-2`}
+                      !isSidebarFull ? "justify-center " : ""
+                    } pointer-events-none flex gap-4 py-3 flex-row items-center p-2`}
                   >
-                    {data.icon}
-                    {isSidebarFull ? data.name : ""}
+                    <div>{data.icon}</div>
+                    {isSidebarFull ? (
+                      <div className="sm:flex hidden">{data.name}</div>
+                    ) : null}
                   </div>
                 </button>
               </div>
             </div>
           ))}
         </div>
-        <div className="hidden sm:flex items-center">
+        <div className="hidden absolute -right-4 sm:flex h-full dark:bg-slate-800 items-center">
           <button
             onClick={() => setIsSidebarFull((prev) => !prev)}
             className="absolute right-0 h-8 w-8 justify-center hover:scale-110 duration-300 flex rounded-full items-center p-2 bg-white dark:bg-slate-800 dark:sm:border-slate-600 sm:border sm:border-slate-200 shadow-lg"
           >
             {isSidebarFull ? "<" : ">"}
           </button>
-        </div>
-        <div className="sm:flex w-full hidden px-4 sm:pb-4 bg-white dark:bg-slate-800 rounded-b-xl ustify-between items-center text-sm flex-col sm:flex-row">
-          <div className=""></div>
         </div>
       </div>
     </div>

@@ -4,8 +4,15 @@ import { GlobalContext } from "../contex/GlobalContext";
 import Task from "./Task";
 
 const Content = () => {
-  const { userData, currentYear, currentMonth, months, days, monthToggle } =
-    useContext(GlobalContext);
+  const {
+    userData,
+    currentYear,
+    currentMonth,
+    months,
+    days,
+    monthToggle,
+    coloredTheme,
+  } = useContext(GlobalContext);
   const projects = userData.user.data.projects
     .sort(
       (a, b) =>
@@ -248,7 +255,9 @@ const Content = () => {
           </div>
         </div>
         <div className=" w-full sm:pb-4 pb-12 ">
-          <div className=" flex flex-col bg-white dark:bg-slate-800 dark:text-white shadow-md rounded-3xl p-4 pb-6 h-full w-full">
+          <div
+            className={`${coloredTheme.first} flex flex-col dark:text-white shadow-md rounded-3xl p-4 pb-6 h-full w-full`}
+          >
             <div className=" flex flex-row justify-between items-center m-4 mt-2">
               <button
                 className="shadow-md rounded-full p-2 flex justify-center items-center h-8 w-8 border font-bold border-slate-200"

@@ -1,8 +1,7 @@
 import React, { useContext, useEffect } from "react";
-// import { useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import { GlobalContext } from "../../contex/GlobalContext";
-// import io from "socket.io-client";
+import useSWR from "swr";
 
 const Messages = () => {
   const {
@@ -19,44 +18,39 @@ const Messages = () => {
     isChatOpened,
     setIsChatOpened,
     isLoading,
-    // setCurrentChat,
-    // socket,
-    // setSocket,
+    setCurrentChat,
   } = useContext(GlobalContext);
-  // const id = userData.user._id;
   useEffect(() => {
     const contactss = JSON.parse(localStorage.getItem("contacts"));
     if (contactss) {
       setAllUser(contactss);
     }
-
-    // const newSocket = io("http://localhost:3002", { query: { id } });
-    // setSocket(newSocket);
-
-    // return () => newSocket.close();
   }, [userData, setAllUser]);
 
+  const userID1 = userData.user._id;
+  const userID2 = currentReceiver.id;
+  const fetcher = (args) =>
+    fetch(args, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userID1, userID2 }),
+    }).then((res) => res.json());
+  // const { data, error, isLoading2 } = useSWR(
+  const { data } = useSWR(
+    "https://asdasdasd-ditobayu.vercel.app/users/getchat",
+    fetcher
+  );
   useEffect(() => {
     if (currentReceiver) {
       document.getElementById("lastChat")?.scrollIntoView();
     }
-  }, [currentChat, currentReceiver]);
-  // useEffect(() => {
-  //   if (socket == null) return;
-
-  //   socket.on("receive-message", ({ chat, sender }) => {
-  //     setCurrentChat([
-  //       ...currentChat,
-  //       {
-  //         message: chat,
-  //         userID1: sender,
-  //         userID2: id,
-  //       },
-  //     ]);
-  //   });
-
-  //   return () => socket.off("receive-message");
-  // }, [socket, currentChat]);
+    if (data) {
+      document.getElementById("lastChat2")?.scrollIntoView();
+    }
+  }, [currentChat, currentReceiver, data]);
+  useEffect(() => {
+    setCurrentChat(data);
+  }, [data, setCurrentChat]);
 
   return (
     <div className="flex flex-row h-screen">
@@ -188,7 +182,7 @@ const Messages = () => {
             </div>
           </div>
           <div className="bg-transparent px-4 py-4 pt-16 pb-32 scroll-smooth sm:pb-16 overflow-y-scroll noScrollbar">
-            {currentChat.map((data, index) => (
+            {currentChat?.map((data, index) => (
               <div
                 key={index}
                 className={
@@ -216,6 +210,7 @@ const Messages = () => {
           >
             <input
               required
+              disabled={currentReceiver.id ? false : true}
               type="text"
               placeholder="Message"
               name="message"
@@ -224,6 +219,7 @@ const Messages = () => {
               className="flex-1 h-12 rounded-xl dark:text-slate-100 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 bg-gray-100 dark:bg-slate-700 py-1 px-4 "
             />
             <button
+              disabled={currentReceiver.id ? false : true}
               className="rounded-full bg-slate-100 dark:bg-slate-700 dark:text-slate-100 flex justify-center items-center h-12 w-12"
               type="submit"
             >

@@ -1,13 +1,14 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import Cookies from "js-cookie";
-import { StateManager } from "../App";
+import { StateManager, ThemeContext } from "../App";
 import { useNavigate } from "react-router-dom";
 
 export const GlobalContext = createContext();
 export const GlobalProvider = (props) => {
   const navigate = useNavigate();
   const { setToken } = useContext(StateManager);
-  const [theme, setTheme] = useState("light");
+  // const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useContext(ThemeContext);
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -22,7 +23,7 @@ export const GlobalProvider = (props) => {
     user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : null,
   });
   const [userToken, setUserToken] = useState(Cookies.get("token"));
-  const [isSidebarFull, setIsSidebarFull] = useState(false);
+  const [isSidebarFull, setIsSidebarFull] = useState(true);
   const [isEditingTask, setIsEditingTask] = useState(false);
   const [isEditingProject, setIsEditingProject] = useState(false);
   const handleLogout = () => {
@@ -607,10 +608,230 @@ export const GlobalProvider = (props) => {
   const [socket, setSocket] = useState();
 
   const [selectedMenu, setSelectedMenu] = useState("");
+
+  const [coloredTheme, setColoredTheme] = useState({
+    first: "bg-slate-800",
+    second: "bg-slate-700",
+    third: "bg-slate-500",
+  });
+
+  const handleThemeColor = (param) => {
+    if (theme === "light") {
+      if (param === "blue") {
+        setColoredTheme({
+          first: "bg-indigo-100",
+          second: "bg-indigo-200",
+          third: "bg-indigo-300",
+        });
+      } else if (param === "red") {
+        setColoredTheme({
+          first: "bg-red-100",
+          second: "bg-red-200",
+          third: "bg-red-300",
+        });
+      } else if (param === "emerald") {
+        setColoredTheme({
+          first: "bg-emerald-100",
+          second: "bg-emerald-200",
+          third: "bg-emerald-300",
+        });
+      } else if (param === "yellow") {
+        setColoredTheme({
+          first: "bg-yellow-100",
+          second: "bg-yellow-200",
+          third: "bg-yellow-300",
+        });
+      } else if (param === "orange") {
+        setColoredTheme({
+          first: "bg-orange-100",
+          second: "bg-orange-200",
+          third: "bg-orange-300",
+        });
+      } else if (param === "cyan") {
+        setColoredTheme({
+          first: "bg-cyan-100",
+          second: "bg-cyan-200",
+          third: "bg-cyan-300",
+        });
+      } else if (param === "purple") {
+        setColoredTheme({
+          first: "bg-purple-100",
+          second: "bg-purple-200",
+          third: "bg-purple-300",
+        });
+      } else if (param === "default") {
+        setColoredTheme({
+          first: "bg-white",
+          second: "bg-slate-200",
+          third: "bg-slate-300",
+        });
+      }
+    } else {
+      if (param === "blue") {
+        setColoredTheme({
+          first: "bg-indigo-800",
+          second: "bg-indigo-700",
+          third: "bg-indigo-500",
+        });
+      } else if (param === "red") {
+        setColoredTheme({
+          first: "bg-red-800",
+          second: "bg-red-700",
+          third: "bg-red-500",
+        });
+      } else if (param === "emerald") {
+        setColoredTheme({
+          first: "bg-emerald-800",
+          second: "bg-emerald-700",
+          third: "bg-emerald-500",
+        });
+      } else if (param === "yellow") {
+        setColoredTheme({
+          first: "bg-yellow-800",
+          second: "bg-yellow-700",
+          third: "bg-yellow-500",
+        });
+      } else if (param === "orange") {
+        setColoredTheme({
+          first: "bg-orange-800",
+          second: "bg-orange-700",
+          third: "bg-orange-500",
+        });
+      } else if (param === "cyan") {
+        setColoredTheme({
+          first: "bg-cyan-800",
+          second: "bg-cyan-700",
+          third: "bg-cyan-500",
+        });
+      } else if (param === "purple") {
+        setColoredTheme({
+          first: "bg-purple-800",
+          second: "bg-purple-700",
+          third: "bg-purple-500",
+        });
+      } else if (param === "default") {
+        setColoredTheme({
+          first: "bg-slate-800",
+          second: "bg-slate-700",
+          third: "bg-slate-500",
+        });
+      }
+    }
+  };
+
+  const [currentColor, setCurrentColor] = useState("default");
+  useEffect(() => {
+    if (theme === "light") {
+      if (currentColor === "blue") {
+        setColoredTheme({
+          first: "bg-indigo-100",
+          second: "bg-indigo-200",
+          third: "bg-indigo-300",
+        });
+      } else if (currentColor === "red") {
+        setColoredTheme({
+          first: "bg-red-100",
+          second: "bg-red-200",
+          third: "bg-red-300",
+        });
+      } else if (currentColor === "emerald") {
+        setColoredTheme({
+          first: "bg-emerald-100",
+          second: "bg-emerald-200",
+          third: "bg-emerald-300",
+        });
+      } else if (currentColor === "yellow") {
+        setColoredTheme({
+          first: "bg-yellow-100",
+          second: "bg-yellow-200",
+          third: "bg-yellow-300",
+        });
+      } else if (currentColor === "orange") {
+        setColoredTheme({
+          first: "bg-orange-100",
+          second: "bg-orange-200",
+          third: "bg-orange-300",
+        });
+      } else if (currentColor === "cyan") {
+        setColoredTheme({
+          first: "bg-cyan-100",
+          second: "bg-cyan-200",
+          third: "bg-cyan-300",
+        });
+      } else if (currentColor === "purple") {
+        setColoredTheme({
+          first: "bg-purple-100",
+          second: "bg-purple-200",
+          third: "bg-purple-300",
+        });
+      } else if (currentColor === "default") {
+        setColoredTheme({
+          first: "bg-white",
+          second: "bg-slate-200",
+          third: "bg-slate-300",
+        });
+      }
+    } else {
+      if (currentColor === "blue") {
+        setColoredTheme({
+          first: "bg-indigo-800",
+          second: "bg-indigo-700",
+          third: "bg-indigo-500",
+        });
+      } else if (currentColor === "red") {
+        setColoredTheme({
+          first: "bg-red-800",
+          second: "bg-red-700",
+          third: "bg-red-500",
+        });
+      } else if (currentColor === "emerald") {
+        setColoredTheme({
+          first: "bg-emerald-800",
+          second: "bg-emerald-700",
+          third: "bg-emerald-500",
+        });
+      } else if (currentColor === "yellow") {
+        setColoredTheme({
+          first: "bg-yellow-800",
+          second: "bg-yellow-700",
+          third: "bg-yellow-500",
+        });
+      } else if (currentColor === "orange") {
+        setColoredTheme({
+          first: "bg-orange-800",
+          second: "bg-orange-700",
+          third: "bg-orange-500",
+        });
+      } else if (currentColor === "cyan") {
+        setColoredTheme({
+          first: "bg-cyan-800",
+          second: "bg-cyan-700",
+          third: "bg-cyan-500",
+        });
+      } else if (currentColor === "purple") {
+        setColoredTheme({
+          first: "bg-purple-800",
+          second: "bg-purple-700",
+          third: "bg-purple-500",
+        });
+      } else if (currentColor === "default") {
+        setColoredTheme({
+          first: "bg-slate-800",
+          second: "bg-slate-700",
+          third: "bg-slate-500",
+        });
+      }
+    }
+  }, [theme, setColoredTheme, currentColor]);
   return (
     <GlobalContext.Provider
       value={{
         handleTheme,
+        currentColor,
+        setCurrentColor,
+        handleThemeColor,
+        coloredTheme,
+        setColoredTheme,
         selectedMenu,
         setSelectedMenu,
         socket,

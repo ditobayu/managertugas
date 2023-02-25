@@ -19,6 +19,21 @@ const Dashboard = () => {
       const qwe2 = await qwe.json();
       localStorage.setItem("contacts", JSON.stringify(qwe2));
     };
+    const getAllChallenge = async () => {
+      try {
+        const challenges = await fetch(
+          "https://asdasdasd-ditobayu.vercel.app/challenge/getallchallenge",
+          {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+          }
+        ).then((res) => res.json());
+
+        localStorage.setItem("challenges", JSON.stringify(challenges));
+        console.log(challenges);
+      } catch (error) {}
+    };
+    getAllChallenge();
     fetchData();
   }, []);
   return (
