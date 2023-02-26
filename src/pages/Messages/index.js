@@ -36,7 +36,7 @@ const Messages = () => {
       body: JSON.stringify({ userID1, userID2 }),
     }).then((res) => res.json());
   // const { data, error, isLoading2 } = useSWR(
-  const { data } = useSWR(
+  const { data, error, isLoading2 } = useSWR(
     "https://asdasdasd-ditobayu.vercel.app/users/getchat",
     fetcher
   );
