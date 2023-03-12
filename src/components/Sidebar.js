@@ -33,7 +33,7 @@ const Sidebar = () => {
       ),
     },
     {
-      name: "Task & Project",
+      name: "Workspace",
       link: "/task",
       icon: (
         <svg
@@ -116,7 +116,7 @@ const Sidebar = () => {
   return (
     <div
       className={`bg-trasnparent ${
-        isSidebarFull ? "sm:w-64" : " sm:w-24"
+        isSidebarFull ? "sm:w-64 sm:left-0" : " sm:w-24 -left-20"
       } duration-300 fixed pointer-events-none w-full h-[100dvh] sm:p-4 z-10`}
     >
       <div

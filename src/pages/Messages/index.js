@@ -57,7 +57,7 @@ const Messages = () => {
       <Sidebar />
       <div
         className={`flex duration-300 text-slate-700 flex-row bg-slate-100 gap-1 dark:bg-slate-900 sm:pr-4 sm:pt-4
-        ${isSidebarFull ? " sm:pl-64" : " sm:pl-24"}
+        ${isSidebarFull ? " sm:pl-64" : "sm:pl-40 sm:pr-40"}
         
           w-screen`}
       >

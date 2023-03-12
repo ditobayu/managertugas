@@ -28,13 +28,26 @@ const Challenge = () => {
     localStorage.setItem("challenges", JSON.stringify(challenges));
     setSelectedChallenge(challenge);
   };
+  const [isOpenPlayground, setIsOpenPlayground] = useState(false);
+  const [htmlCode, setHtmlCode] = useState(
+    "<div>\n\n</div>\n\n<style>\n\n</style>"
+  );
+  const handleHtmlCode = (e) => {
+    setHtmlCode((state) => e.target.value);
+  };
   return (
     <div className="flex flex-row noScrollbar ">
       <Sidebar />
 
       <div
         className={`flex duration-300 flex-col bg-slate-100 gap-1 dark:bg-slate-900 sm:pr-4 pt-4
-          ${isSidebarFull ? " sm:pl-64" : " sm:pl-24"}
+          ${
+            isSidebarFull
+              ? " sm:pl-64"
+              : isOpenPlayground
+              ? " sm:pl-4 sm:pr-4"
+              : " sm:pl-40 sm:pr-40"
+          }
           px-1
             w-screen h-full`}
       >
@@ -71,7 +84,7 @@ const Challenge = () => {
                       )
                         ? "flex"
                         : "hidden"
-                    } justify-center dark:bg-slate-800 bg-slate-100 p-2 w-24 md:w-36 md:text-md text-sm rounded-xl hover:scale-105 duration-200`}
+                    } justify-center dark:bg-slate-800 bg-white shadow-md p-2 w-24 md:w-36 md:text-md text-sm rounded-xl hover:scale-105 duration-200`}
                   >
                     Join Kelas
                   </button>
@@ -83,7 +96,7 @@ const Challenge = () => {
                       )
                         ? "flex"
                         : "hidden"
-                    } justify-center dark:bg-slate-800 bg-slate-100 p-2 w-24 md:w-36 md:text-md text-sm rounded-xl hover:scale-105 duration-200`}
+                    } justify-center dark:bg-slate-800 bg-white shadow-md p-2 w-24 md:w-36 md:text-md text-sm rounded-xl hover:scale-105 duration-200`}
                   >
                     Masuk Kelas
                   </button>
@@ -113,16 +126,35 @@ const Challenge = () => {
                 {selectedChallenge.title}
               </h3>
             </div>
-            <button
-              onClick={() => setChallengePage("leaderboard")}
-              className="flex flex-col overflow-hidden mr-8 rounded-xl justify-center hover:scale-105 duration-200 items-center h-full bg-white shadow-md dark:bg-slate-800"
-            >
-              <div className="mx-4 my-2">Leaderboard</div>
-              <div className="h-1 w-full bg-cyan-400"></div>
-            </button>
+            <div className="flex flex-row">
+              <button
+                onClick={() => {
+                  setChallengePage("leaderboard");
+                }}
+                className="flex flex-col overflow-hidden mr-4 rounded-xl justify-center hover:scale-105 duration-200 items-center h-full bg-white shadow-md dark:bg-slate-800"
+              >
+                <div className="mx-4 my-2">Leaderboard</div>
+                <div className="h-1 w-full bg-cyan-400"></div>
+              </button>
+              <button
+                onClick={() => {
+                  setIsOpenPlayground((prev) => !prev);
+                }}
+                className="flex flex-col overflow-hidden mr-8 rounded-xl justify-center hover:scale-105 duration-200 items-center h-full bg-white shadow-md dark:bg-slate-800"
+              >
+                <div className="mx-4 my-2">
+                  {isOpenPlayground ? "Playlist" : "Playground"}
+                </div>
+                <div className="h-1 w-full bg-cyan-400"></div>
+              </button>
+            </div>
           </div>
           <div className="flex flex-col md:flex-row h-full overflow-hidden noScrollbar overflow-y-scroll">
-            <div className="w-full md:w-8/12">
+            <div
+              className={`${
+                isOpenPlayground ? "md:w-6/12" : "md:w-8/12"
+              } w-full `}
+            >
               <iframe
                 className="rounded-lg md:rounded-[40px] h-52 sm:h-80 md:h-[400px]"
                 width="100%"
@@ -162,7 +194,11 @@ const Challenge = () => {
                 {/* </div> */}
               </div>
             </div>
-            <div className="w-full md:w-4/12 md:px-4 mb-16">
+            <div
+              className={`${
+                isOpenPlayground ? "hidden" : "flex"
+              } flex-col w-full md:w-4/12 md:px-4 mb-16 `}
+            >
               {selectedChallenge?.data?.map((val, i) => (
                 <button
                   key={i}
@@ -188,6 +224,35 @@ const Challenge = () => {
                   </div>
                 </button>
               ))}
+            </div>
+            <div
+              className={`${
+                isOpenPlayground ? "flex" : "hidden"
+              } flex-col gap-1 w-full md:w-6/12 md:px-4 mb-16 `}
+            >
+              <iframe
+                className="mb-4 w-full h-[400px] bg-white rounded-xl"
+                srcDoc={
+                  htmlCode +
+                  '<style>@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap"); * {font-family: "Rubik", sans-serif;margin:0;}</style>'
+                }
+              ></iframe>
+              <p>Editor</p>
+              <div className="border-2 dark:border-slate-700 rounded-lg px-4 py-3 noScrollbar dark:bg-slate-800 w-full h-96 focus:outline-0">
+                <textarea
+                  style={{ resize: "none" }}
+                  type="text-area"
+                  onChange={handleHtmlCode}
+                  value={htmlCode}
+                  required
+                  name="note"
+                  placeholder=""
+                  className="styledScrollbar bg-transparent w-full h-80 focus:outline-0"
+                />
+                <div className="flex flex-row-reverse opacity-50">
+                  <p>{htmlCode.length} character</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

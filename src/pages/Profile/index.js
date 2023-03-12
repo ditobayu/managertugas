@@ -67,7 +67,7 @@ const Profile = () => {
       <Sidebar />
       <div
         className={`flex duration-300 flex-row bg-slate-100 pb-8 gap-1 dark:bg-slate-900 sm:pr-4 sm:pt-4 pt-2
-        ${isSidebarFull ? " sm:pl-64" : " sm:pl-24"}
+        ${isSidebarFull ? " sm:pl-64" : "sm:pl-40 sm:pr-40"}
         px-1
           w-screen`}
       >

@@ -1,7 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
 html,
 body,
 #root,
@@ -25,6 +25,21 @@ code {
 
 .noScrollbar::-webkit-scrollbar {
   display: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #475569;
+  border-radius: 1vw;
+  margin: 1px;
+  border: 0.2vw solid #1e293b;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: #1e293b;
+}
+
+*::-webkit-scrollbar {
+  width: 1.25vw;
 }
 
 .createInput span {

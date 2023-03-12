@@ -42,7 +42,7 @@ const Dashboard = () => {
 
       <div
         className={`flex duration-300 flex-col bg-slate-100 pb-32 dark:bg-slate-900 
-        ${isSidebarFull ? "sm:pl-64" : "sm:pl-24"}
+        ${isSidebarFull ? "sm:pl-64" : "sm:pl-40 sm:pr-40"}
         pl-4
           w-screen`}
       >

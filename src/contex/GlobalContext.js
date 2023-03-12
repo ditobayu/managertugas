@@ -578,15 +578,6 @@ export const GlobalProvider = (props) => {
   };
   const sendChat = async (e) => {
     e.preventDefault();
-    // socket.emit("send-message", { currentReceiver: currentReceiver.id, chat });
-    // setCurrentChat([
-    //   ...currentChat,
-    //   {
-    //     userID1: userData.user._id,
-    //     userID2: currentReceiver.id,
-    //     message: chat,
-    //   },
-    // ]);
     const chatResponse = await fetch(
       "https://asdasdasd-ditobayu.vercel.app/users/sendchat",
       {
